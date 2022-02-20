@@ -1,0 +1,42 @@
+.coin {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+
+  &__coin-name {
+    display: flex;
+    font-size: 12px;
+    font-weight: 700;
+    gap: 5px;
+    width: 140px;
+    justify-content: flex-start;
+
+    & > img{
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &__coin-price {
+    width: 80px;
+    margin-left: auto;
+  }
+
+  &__coin-volume {
+    width: 110px;
+    margin-left: auto;
+  }
+
+  &__coin-ath {
+    width: 120px;
+    margin-left: auto;
+  }
+
+  &__coin-market-cap {
+    width: 120px;
+    margin-left: auto;
+  }
+
+}

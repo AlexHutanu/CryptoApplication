@@ -1,0 +1,21 @@
+.pagination {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+
+
+  &__input {
+    border-style: none;
+    background: transparent;
+    outline: none;
+    color:white;
+    width: 50%;
+    border-radius: 20px;
+  }
+  &__button {
+    cursor: pointer;
+    color:grey;
+    background: transparent;
+    border: transparent;
+  }
+}

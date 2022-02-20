@@ -1,0 +1,56 @@
+.header {
+  height: 100px;
+  color: white;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+
+  &__title {
+    display: flex;
+    color: white;
+    font-family: Cambria sans-serif;
+    align-items: center;
+  }
+
+  &__table-header {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 15px;
+    font-weight: 900;
+
+    &__name {
+      width: 140px;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__price{
+      width: 80px;
+      margin-left: auto;
+    }
+
+    &__volume{
+      width: 110px;
+      margin-left: auto;
+    }
+
+    &__ath{
+      width: 120px;
+      margin-left: auto;
+    }
+
+    &__market-cap{
+      width: 120px;
+      margin-left: auto;
+    }
+  }
+}
+
+.horizontal-line {
+  border: 0;
+  width: 80%;
+  height: 0.5px;
+  background-image: linear-gradient(to right, rgba(#ccc, .1), #333, rgba(#ccc, .1));
+}

@@ -13,9 +13,9 @@ export default () => {
 
     const {currencyName, vsCurrency} = useParams()
 
-    const handleParams = (param) => {
-        return param.split(' ').length === 1 ? param.split(' ')[0] : param.split(' ').join('-')
-    }
+    const handleParams = (param) => 
+        param.split(' ').length === 1 ? param.split(' ')[0] : param.split(' ').join('-')
+    
 
     useEffect(() => {
         fetchCryptoData(apiRoutes.oneCoinRoute(handleParams(currencyName)))
@@ -25,8 +25,7 @@ export default () => {
 
     console.log(currencyName)
 
-    if(coin) {
-        return (
+    return coin ? (
             <div className="coin-page">
                 <div className="coin-page__name">
                     <img src={coin.image.small} alt="CoinImage" />
@@ -72,9 +71,6 @@ export default () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        )
-    }else{
-        return <Loader/>
-    }
+            </div>) :
+            <Loader/>
 }

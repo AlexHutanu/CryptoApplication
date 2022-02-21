@@ -11,8 +11,6 @@ import './shared/all.scss'
 import CoinPage from "./components/CoinPage/CoinPage";
 
 
-
-
 export default () =>
     <div className="container">
         <Router>

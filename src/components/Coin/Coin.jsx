@@ -11,7 +11,7 @@ export default ({image, name, price, volume, ath, marketCap}) => {
     return <div className="coin">
         <div className="coin__coin-name" >
             <img src={image} alt="cryptoImage" />
-            <Link to={`/searchCoin/${name}&usd`}>{handleName(name)}</Link>
+            <Link className="coin__coin-name__navigation-link" to={`/searchCoin/${name}&usd`}> {handleName(name)} </Link>
         </div>
         <div className="coin__coin-price">
             <p>{price} $</p>

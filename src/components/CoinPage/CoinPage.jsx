@@ -1,6 +1,7 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import {useEffect, useState} from "react"
+import {Link} from 'react-router-dom'
 
 import fetchCryptoData from "../../utils/cryptoApi"
 import apiRoutes from "../../shared/apiRoutes"
@@ -23,10 +24,10 @@ export default () => {
             .catch(error => console.log(error))
     },[])
 
-    console.log(currencyName)
 
     return coin ? (
             <div className="coin-page">
+                <Link className="coin-page__navigation-link" to='/' label="SearchCoin">Go to HomePage</Link>
                 <div className="coin-page__name">
                     <img src={coin.image.small} alt="CoinImage" />
                     <p>{coin.name}</p>
@@ -40,17 +41,17 @@ export default () => {
                         <div className="coin-page__left-block__price">
                             <p className="coin-page__left-block__price__name">Price</p>
                             <hr className="horizontal-line" />
-                            <p className="coin-page__left-block__price__data">{convertLargeNumberToReadableNumber(coin.market_data.current_price.usd)}$</p>
+                            <p className="coin-page__left-block__price__data">{convertLargeNumberToReadableNumber(coin.market_data.current_price[`${vsCurrency.toLowerCase()}`], 2)}&nbsp;{vsCurrency.toUpperCase()}</p>
                         </div>
                         <div className="coin-page__left-block__volume">
                             <p className="coin-page__left-block__volume__name">Volume</p>
                             <hr className="horizontal-line" />
-                            <p className="coin-page__left-block__volume__data">{convertLargeNumberToReadableNumber(coin.market_data.total_volume.usd)}$</p>
+                            <p className="coin-page__left-block__volume__data">{convertLargeNumberToReadableNumber(coin.market_data.total_volume[`${vsCurrency.toLowerCase()}`], 2)}&nbsp;{vsCurrency.toUpperCase()}</p>
                         </div>
-                        <div className="coin-page__left-block__circulating-supply">
-                            <p className="coin-page__left-block__circulating-supply__name">Circulating Supply</p>
+                        <div className="coin-page__left-block__market-cap">
+                            <p className="coin-page__left-block__market-cap__name">Market Cap</p>
                             <hr className="horizontal-line" />
-                            <p className="coin-page__left-block__circulating-supply__data">{convertLargeNumberToReadableNumber(coin.market_data.circulating_supply)}$</p>
+                            <p className="coin-page__left-block__market-cap__data">{convertLargeNumberToReadableNumber(coin.market_data.market_cap[`${vsCurrency.toLowerCase()}`], 2)}&nbsp;{vsCurrency.toUpperCase()}</p>
                         </div>
                     </div>
                     <div className="coin-page__right-block">
@@ -62,15 +63,15 @@ export default () => {
                         <div className="coin-page__right-block__high_24h">
                             <p className="coin-page__right-block__high_24h__name">High 24h</p>
                             <hr className="horizontal-line" />
-                            <p className="coin-page__right-block__high_24h__data">{coin.market_data.high_24h.usd}$</p>
+                            <p className="coin-page__right-block__high_24h__data">{coin.market_data.high_24h[`${vsCurrency.toLowerCase()}`]}&nbsp;{vsCurrency.toUpperCase()}</p>
                         </div>
                         <div className="coin-page__right-block__low_24h">
                             <p className="coin-page__right-block__low_24h__name">Low 24h</p>
                             <hr className="horizontal-line" />
-                            <p className="coin-page__right-block__low_24h__data">{coin.market_data.low_24h.usd}$</p>
+                            <p className="coin-page__right-block__low_24h__data">{coin.market_data.low_24h[`${vsCurrency.toLowerCase()}`]}&nbsp;{vsCurrency.toUpperCase()}</p>
                         </div>
                     </div>
                 </div>
             </div>) :
-            <Loader/>
+        <Loader />
 }
